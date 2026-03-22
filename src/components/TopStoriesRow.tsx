@@ -1,4 +1,5 @@
 import type { TopStory } from '@/lib/types'
+import ArticleImage from './ArticleImage'
 
 interface TopStoriesRowProps {
   stories: TopStory[]
@@ -20,10 +21,11 @@ export default function TopStoriesRow({ stories }: TopStoriesRowProps) {
           {/* Image */}
           <div className="relative h-36 overflow-hidden bg-gray-800">
             {story.image ? (
-              <img
+              <ArticleImage
                 src={story.image}
                 alt={story.headline}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                fallbackClassName="h-full w-full bg-gradient-to-br from-gray-700 to-gray-800"
               />
             ) : (
               <div className="h-full w-full bg-gradient-to-br from-gray-700 to-gray-800" />

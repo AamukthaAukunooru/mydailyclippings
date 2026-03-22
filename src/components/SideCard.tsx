@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Newsletter } from '@/lib/types'
 import type { TopStory } from '@/lib/types'
 import { getCategoryBySlug, ACCENT_CLASSES } from '@/lib/categories'
+import ArticleImage from './ArticleImage'
 
 interface SideCardProps {
   newsletter: Newsletter
@@ -21,10 +22,11 @@ export default function SideCard({ newsletter, storyIndex }: SideCardProps) {
     >
       {/* Background image */}
       {story?.image ? (
-        <img
+        <ArticleImage
           src={story.image}
           alt={story.headline}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60"
+          fallbackClassName="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 opacity-60"
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 opacity-60" />

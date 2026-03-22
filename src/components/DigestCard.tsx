@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Newsletter } from '@/lib/types'
 import type { CategoryMeta } from '@/lib/types'
 import { ACCENT_CLASSES } from '@/lib/categories'
+import ArticleImage from './ArticleImage'
 
 interface DigestCardProps {
   newsletter: Newsletter | null
@@ -39,10 +40,11 @@ export default function DigestCard({ newsletter, category }: DigestCardProps) {
       {/* Image */}
       {image && (
         <div className="relative h-44 overflow-hidden">
-          <img
+          <ArticleImage
             src={image}
             alt={story?.headline ?? newsletter.frontmatter.title}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fallbackClassName="h-full w-full bg-gradient-to-br from-gray-700 to-gray-800"
           />
           <div className="card-overlay absolute inset-0" />
         </div>

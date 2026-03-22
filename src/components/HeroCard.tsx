@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Newsletter } from '@/lib/types'
 import { getCategoryBySlug, ACCENT_CLASSES } from '@/lib/categories'
+import ArticleImage from './ArticleImage'
 
 interface HeroCardProps {
   newsletter: Newsletter
@@ -17,10 +18,11 @@ export default function HeroCard({ newsletter }: HeroCardProps) {
     <Link href={href} className="group relative block h-72 overflow-hidden rounded-xl bg-surface-card md:h-96">
       {/* Background image */}
       {image ? (
-        <img
+        <ArticleImage
           src={image}
           alt={story?.headline ?? frontmatter.title}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fallbackClassName="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900"
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
