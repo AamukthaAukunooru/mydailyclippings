@@ -3,13 +3,24 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { CATEGORIES } from '@/lib/categories'
 
 export default function CategoryNav() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/90 backdrop-blur-sm">
@@ -32,10 +43,9 @@ export default function CategoryNav() {
           </Link>
 
           {/* Categories dropdown */}
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen((o) => !o)}
-              onBlur={() => setTimeout(() => setDropdownOpen(false), 100)}
               className="flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-white"
             >
               Categories
