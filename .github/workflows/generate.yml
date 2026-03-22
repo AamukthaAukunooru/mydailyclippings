@@ -2,7 +2,7 @@ name: Generate Daily Newsletters
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 6:00 AM UTC daily
+    - cron: '30 0 * * *'   # 6:00 AM IST (UTC+5:30) daily
   workflow_dispatch:        # Manual trigger for testing
 
 permissions:
