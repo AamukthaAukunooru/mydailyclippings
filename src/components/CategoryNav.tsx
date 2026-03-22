@@ -9,6 +9,7 @@ import { CATEGORIES } from '@/lib/categories'
 export default function CategoryNav() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/90 backdrop-blur-sm">
@@ -31,24 +32,31 @@ export default function CategoryNav() {
           </Link>
 
           {/* Categories dropdown */}
-          <div className="group relative">
-            <button className="flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-white">
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen((o) => !o)}
+              onBlur={() => setTimeout(() => setDropdownOpen(false), 100)}
+              className="flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-white"
+            >
               Categories
-              <svg className="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={`h-3 w-3 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className="absolute right-0 top-full mt-2 hidden min-w-[180px] rounded-lg border border-surface-border bg-surface-card p-2 shadow-xl group-hover:block">
-              {CATEGORIES.map((cat) => (
-                <Link
-                  key={cat.slug}
-                  href={`/${cat.slug}`}
-                  className="block rounded-md px-3 py-2 text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
-                >
-                  {cat.label}
-                </Link>
-              ))}
-            </div>
+            {dropdownOpen && (
+              <div className="absolute right-0 top-full mt-1 min-w-[180px] rounded-lg border border-surface-border bg-surface-card p-2 shadow-xl">
+                {CATEGORIES.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    href={`/${cat.slug}`}
+                    onClick={() => setDropdownOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+                  >
+                    {cat.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           <Link
