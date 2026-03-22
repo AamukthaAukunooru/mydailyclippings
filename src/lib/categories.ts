@@ -5,7 +5,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: 'physics',
     label: 'Physics',
     tagline: 'Decoding the architectural blueprints of reality, from the subatomic vibrations of strings to the silent dance of quantum.',
-    accentColor: 'violet',
+    accentColor: 'cyan',
     searchQuery: 'physics research breakthrough discovery paper latest news',
   },
   {
@@ -26,7 +26,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: 'astronomy',
     label: 'Astronomy',
     tagline: 'A curated archive of cosmic phenomena, from the birth of distant nebulae to the silent dance of orbital mechanics.',
-    accentColor: 'indigo',
+    accentColor: 'orange',
     searchQuery: 'astronomy space telescope discovery exoplanet NASA ESA latest news',
   },
 ]
@@ -47,4 +47,5 @@ export const ACCENT_CLASSES: Record<string, { text: string; border: string; bg: 
   rose:   { text: 'text-rose-400',   border: 'border-rose-500',   bg: 'bg-rose-500/10',   btnBg: 'bg-rose-500' },
   teal:   { text: 'text-teal-400',   border: 'border-teal-500',   bg: 'bg-teal-500/10',   btnBg: 'bg-teal-500' },
   orange: { text: 'text-orange-400', border: 'border-orange-500', bg: 'bg-orange-500/10', btnBg: 'bg-orange-500' },
+  cyan:   { text: 'text-cyan-400',   border: 'border-cyan-500',   bg: 'bg-cyan-500/10',   btnBg: 'bg-cyan-500' },
 }

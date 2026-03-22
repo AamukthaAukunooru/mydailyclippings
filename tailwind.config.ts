@@ -7,6 +7,10 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    { pattern: /^(text|border|bg)-(violet|blue|amber|indigo|green|rose|teal|orange|cyan)-(400|500)$/ },
+    { pattern: /^bg-(violet|blue|amber|indigo|green|rose|teal|orange|cyan)-500\/10$/ },
+  ],
   theme: {
     extend: {
       fontFamily: {
