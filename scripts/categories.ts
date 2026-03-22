@@ -1,4 +1,4 @@
-// Standalone copy — does NOT import from src/ to avoid Next.js resolution in Node scripts
+// Standalone copy - does NOT import from src/ to avoid Next.js resolution in Node scripts
 
 export interface ScriptCategory {
   slug: string
@@ -18,6 +18,7 @@ Structure: start with a brief overview paragraph, then 2-3 sections with ## head
 Use bold for key terms. Be specific — include numbers, names of researchers, institutions.
 Do NOT include a top-level # title (it will be added separately).
 Do NOT include YAML frontmatter.
+Do NOT use em dashes (—); use commas or restructure the sentence instead.
 Aim for ~600-800 words.`,
   },
   {
@@ -37,7 +38,7 @@ Aim for ~600-800 words.`,
     label: 'Geopolitics',
     searchQuery: 'geopolitics international relations world news major developments latest 2026',
     systemPrompt: `You are a geopolitical analyst writing a personal daily newsletter called "My Daily Clippings".
-Write in a balanced, factual tone — present facts and multiple perspectives without strong editorial opinions.
+Write in a balanced, factual tone. Present facts and multiple perspectives without strong editorial opinions.
 Structure: brief situation overview paragraph, then 2-3 sections with ## headers covering different regions or themes.
 Use bold for country names, key figures, and agreements.
 Do NOT include a top-level # title.
