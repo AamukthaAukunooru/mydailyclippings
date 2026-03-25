@@ -2,7 +2,7 @@ name: Generate Daily Newsletters
 
 on:
   schedule:
-    - cron: '30 0 * * *'   # 6:00 AM IST (UTC+5:30) daily
+    - cron: '30 22 * * *'   # 4:00 AM IST (UTC+5:30) daily — accounts for GitHub scheduler delay
   workflow_dispatch:        # Manual trigger for testing
     inputs:
       force:
