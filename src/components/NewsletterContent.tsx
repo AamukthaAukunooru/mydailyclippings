@@ -45,9 +45,6 @@ export default async function NewsletterContent({ newsletter }: NewsletterConten
 
       {/* Header */}
       <header className="mb-8">
-        <span className={`mb-3 inline-block text-xs font-semibold uppercase tracking-widest ${accent.text}`}>
-          {cat?.label} · Daily Clipping
-        </span>
         <h1 className="font-serif-display text-4xl font-bold leading-tight text-white md:text-5xl">
           {displayTitle}
         </h1>
