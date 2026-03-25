@@ -8,7 +8,7 @@ on:
       force:
         description: 'Force regenerate even if today already exists'
         type: boolean
-        default: false
+        default: true
 
 permissions:
   contents: write           # Required to commit and push generated files
