@@ -27,7 +27,7 @@ export default function CategoryNav() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
         {/* Masthead */}
         <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/mydailyclippings/logo.png" alt="My Daily Clippings" width={140} height={40} className="h-10 w-auto self-center" priority />
+          <Image src="/MyDailyClippings/logo.png" alt="My Daily Clippings" width={140} height={40} className="h-10 w-auto self-center" priority />
           <span className="font-serif-display text-lg font-bold leading-none tracking-tight text-white md:text-xl self-center">My Daily Clippings</span>
         </Link>
 
