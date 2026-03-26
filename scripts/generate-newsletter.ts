@@ -7,7 +7,9 @@ import { CATEGORIES } from './categories'
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 if (!GEMINI_API_KEY) throw new Error('GEMINI_API_KEY environment variable is not set')
 
-const today = new Date().toISOString().split('T')[0] // "2026-03-22"
+// Use IST (UTC+5:30) so the date is correct when cron runs at 22:30 UTC (= 4:00 AM IST next day)
+const ist = new Date(Date.now() + 5.5 * 60 * 60 * 1000)
+const today = ist.toISOString().split('T')[0]
 const NEWSLETTERS_DIR = path.join(process.cwd(), 'newsletters')
 
 // Fetch OG image and title from a URL
